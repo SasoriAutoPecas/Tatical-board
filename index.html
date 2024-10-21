@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="mobile-title">Tatical Board</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#" id="newsBtn">Notícias</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Mais <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Times</a>
+                        <a href="#">Jogadores</a>
+                        <a href="#">Tabelas</a>
+                    </div>
+                </li>
+                <li><a href="#" id="loginBtn">Login</a></li>
+                <li><a href="#" id="registerBtn">Cadastrar</a></li>
+            </ul>
+        </nav>
+        
+        <nav class="menu-lateral">
+            <div class="btn-expandir">
+                <i class="bi bi-list" id="btn-exp"></i>
+            </div>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Notícias</a></li>
+                <li><a href="#">Times</a></li>
+                <li><a href="#">Jogadores</a></li>
+                <li><a href="#">Tabelas</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Cadastrar</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section>
+        <div class="news-container">
+            <div class="news-card">
+                <img src="img/n1.jpg" alt="Notícia 1">
+                <h3>Final da Copa do Mundo: Emoção no Último Minuto</h3>
+                <p>O campeonato mundial de futebol chegou ao fim com uma vitória emocionante decidida nos pênaltis.</p>
+                <a href="https://www.uol.com.br/esporte/futebol/copa-do-mundo/2022/12/18/argentina-x-franca---final-da-copa-do-mundo-qatar-2022.htm" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n2.jpg" alt="Notícia 2">
+                <h3>Neymar Volta aos Treinos com o PSG</h3>
+                <p>Depois de meses afastado, Neymar Jr. retorna aos treinos com o Paris Saint-Germain.</p>
+                <a href="https://www.terra.com.br/esportes/craques/neymar/apos-quase-um-mes-afastado-neymar-volta-aos-treinos-no-psg,ee76b51210f048119e20f94d6ad2492e99bh0mzf.html" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n3.jpg" alt="Notícia 3">
+                <h3>Tática Revolucionária no Futebol Moderno</h3>
+                <p>Nova formação 3-4-3 está sendo amplamente adotada em ligas europeias, mostrando grande eficiência.</p>
+                <a href="https://es.coachesvoice.com/cv/analise-tatica-sistemas-de-jogo-4-3-3/" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n4.jpg" alt="Notícia 4">
+                <h3>Messi Brilha em Jogo Histórico</h3>
+                <p>Com uma performance memorável, Messi ajuda seu time a conquistar uma vitória crucial na Liga dos Campeões.</p>
+                <a href="https://www.mixvale.com.br/2024/09/03/messi-marca-sua-historia-ao-conquistar-duas-vezes-a-bola-de-ouro-em-copas/" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n5.jpg" alt="Notícia 5">
+                <h3>Guardiola e sua Inovação Tática no Manchester City</h3>
+                <p>Guardiola introduz novas variações táticas que transformaram o estilo de jogo do Manchester City.</p>
+                <a href="https://ge.globo.com/blogs/painel-tatico/post/2021/02/25/guardiola-redesenha-a-piramide-mais-uma-vez-na-sequencia-invicta-do-city.ghtml" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n6.jpg" alt="Notícia 6">
+                <h3>Transferência de Mbappé para Real Madrid</h3>
+                <p>Kylian Mbappé está perto de finalizar sua transferência para o Real Madrid, segundo fontes confiáveis.</p>
+                <a href="https://www.lance.com.br/futebol-internacional/para-contratar-mbappe-real-madrid-pode-colocar-brasileiro-no-mercado-de-transferencias.html" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n7.jpg" alt="Notícia 7">
+                <h3>Cristiano Ronaldo e a Nova Fase no Al-Nassr</h3>
+                <p>Cristiano Ronaldo continua sua jornada no futebol árabe, conquistando títulos e recordes com o Al-Nassr.</p>
+                <a href="https://www.nacaofutboleira.com.br/futebolbrasileiro/Cristiano-Ronaldo-continua-a-bater-recordes-com-Al-Nassr-e-passa-outros-jogadores-20230924-0014.html" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n8.jpg" alt="Notícia 8">
+                <h3>Título Inédito para o Palmeiras</h3>
+                <p>O Palmeiras conquista seu primeiro título internacional com uma vitória épica sobre o Boca Juniors.</p>
+                <a href="https://palmeiras.com.br/noticias/historico-palestrinas-superam-boca-juniors-e-conquistam-titulo-inedito-da-libertadores-feminina/" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n9.jpg" alt="Notícia 9">
+                <h3>Novas Regras da FIFA para o Próximo Campeonato</h3>
+                <p>A FIFA anuncia mudanças importantes nas regras do futebol, impactando competições de alto nível.</p>
+                <a href="https://www.tribunadeituverava.com.br/fifa-estuda-quatro-mudancas-nas-regras-da-partida-que-podem-revolucionar-o-futebol/" target="_blank">Saiba mais</a>
+            </div>
+            <div class="news-card">
+                <img src="img/n10.jpg" alt="Notícia 10">
+                <h3>Brasil Se Prepara para as Eliminatórias</h3>
+                <p>A seleção brasileira intensifica seus treinamentos visando as próximas eliminatórias da Copa do Mundo.</p>
+                <a href="https://www.surtoolimpico.com.br/2023/07/com-presenca-de-craques-que-atuam-no.html" target="_blank">Saiba mais</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <div id="loginError" style="color: red; display: none;"></div>
+            <form action="php/login.php" method="POST">
+                <input type="text" name="username" placeholder="Usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+    
+    
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>Cadastrar</h2>
+            <div id="registerError" style="color: red; display: none;"></div>
+            <form action="php/register.php" method="POST">
+                <input type="text" name="username" placeholder="Usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Cadastro realizado com sucesso!</h2>
+            <p>Seja bem-vindo.</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <footer>
+        <p>&copy; 2024 Tatical Board. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
