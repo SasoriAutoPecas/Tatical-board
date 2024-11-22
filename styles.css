@@ -1,0 +1,84 @@
+/* Variáveis Globais */
+:root {
+    --cor-principal: #333;
+    --cor-destaque: #45a049;
+    --cor-clara: #fff;
+    --cor-escura: #000;
+    --transicao: all 0.3s ease-in-out;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--cor-clara);
+    color: var(--cor-escura);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--cor-principal);
+    color: var(--cor-clara);
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Campo */
+#campo {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    background-color: #228B22;
+    position: relative;
+    border: 2px solid var(--cor-principal);
+    margin: 20px auto;
+}
+
+/* Jogadores e Elementos */
+.jogador {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+
+.bola {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, white 60%, black 40%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #campo {
+        height: 300px;
+    }
+
+    .jogador {
+        width: 30px;
+        height: 30px;
+    }
+
+    .bola {
+        width: 15px;
+        height: 15px;
+    }
+}

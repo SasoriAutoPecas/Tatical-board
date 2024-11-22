@@ -1,0 +1,17 @@
+DeusEmaravilhoso/
+│
+├── index.html         # HTML principal refatorado
+├── styles.css         # Estilos globais e modulares
+├── js/                # Scripts JavaScript
+│   ├── app.js         # Inicialização do app
+│   ├── field.js       # Controle do campo e interatividade
+│   ├── players.js     # Gerenciamento de jogadores
+│   ├── animations.js  # Lógica de animações com GSAP
+│   ├── export.js      # Funções de exportação (JSON, imagens, vídeos)
+│   └── ui.js          # Controle da interface e eventos
+├── libs/              # Bibliotecas externas
+│   ├── gsap.min.js    # Animações suaves
+│   ├── html2canvas.js # Exportação de imagens
+│   └── ffmpeg.js      # Exportação de vídeos
+└── assets/            # Qualquer recurso adicional (opcional)
+    
