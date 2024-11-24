@@ -1,0 +1,534 @@
+:root {
+    --cor-principal: #4CAF50;
+    --cor-hover: #45a049;
+    --cor-campo: #006400;
+    --cor-seta: #ff2f00;
+    --cor-bola: #FFD700;
+    --cor-jogador: #1E90FF;
+    --cor-goleiro: #FF4500;
+    --tamanho-jogador: 50px;
+    --tamanho-goleiro: 45px;
+    --tamanho-bola: 35px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    background-color: #202020;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#toolbar {
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+#toolbar.open {
+    left: 0;
+}
+
+#toolbar h2 {
+    margin-top: 50px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.elemento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+    user-select: none;
+    margin-bottom: 20px;
+}
+
+.elemento img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.elemento:hover img {
+    transform: scale(1.1);
+}
+
+.elemento span {
+    margin-top: 5px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+#campo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/campo.png');
+    background-size: cover;
+    border: 5px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.jogador, .goleiro, .bola {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: grab;
+    user-select: none;
+}
+
+.jogador img, .goleiro img, .bola img {
+    width: 100%;
+    height: 100%;
+}
+
+.jogador {
+    width: var(--tamanho-jogador);
+    height: var(--tamanho-jogador);
+}
+
+.goleiro {
+    width: var(--tamanho-goleiro);
+    height: var(--tamanho-goleiro);
+}
+
+.bola {
+    width: var(--tamanho-bola);
+    height: var(--tamanho-bola);
+}
+
+.linha {
+    stroke: var(--cor-seta);
+    stroke-width: 5;
+    marker-end: url(#arrowhead);
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: 
+        background-color 0.4s ease-in-out, 
+        transform 0.2s ease-in-out, 
+        box-shadow 0.4s ease-in-out; 
+    outline: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+    position: relative;
+    overflow: hidden;
+    z-index: 0 !important; 
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    background-color: var(--cor-hover);
+    transform: scale(1.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.98); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: var(--cor-active);
+}
+
+button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3), 0 0 0 6px var(--cor-principal);
+}
+
+
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.selected {
+    box-shadow: 0 0 0 3px yellow;
+}
+
+
+
+nav.menu-lateral.expandir{
+    width: 260px;
+}
+
+nav.menu-lateral{
+    width: 70px;
+    height: 100%;
+    background-color: #202020;
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0px 0px #04df58;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: 1s;
+    z-index: 100;
+}
+
+.btn-expandir{
+   width: 100%;
+   padding-left: 10px;
+}
+
+.btn-expandir > i{
+   color: #fff;
+   font-size: 24px;
+   cursor: pointer;
+}
+
+ul{
+   height: 100%;
+   list-style-type: none;
+   padding: 0;
+}
+
+ul li.item-menu{
+   transition: 2s;
+}
+
+ul li.item-menu a{
+   color: #fff;
+   text-decoration: none;
+   font-size: 20px;
+   padding: 0px 0px;
+   display: flex;
+   line-height: 40px;
+}
+
+ul li.item-menu a .txt-link{
+   margin-left: 70px;
+   transition: 1s;
+   opacity: 0;
+}
+
+
+nav.menu-lateral.expandir .txt-link{
+   margin-left: 60px;
+   opacity: 1;
+}
+
+ul li.item-menu a .icon > i{
+    font-size: 30px;
+    margin-left: 10px;
+    
+}
+
+
+.menu-lateral::-webkit-scrollbar {
+    width: 0.1px;
+    background-color: transparent;
+}
+
+.menu-lateral::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.menu-lateral::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+}
+
+.menu-lateral::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#menu-formacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: -260px; 
+    top: 0;
+    height: 100%;
+}
+
+#menu-formacao-mobile {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: -260px; 
+    top: 0;
+    height: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.dropbtn {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-content button:hover {
+    background-color: var(--cor-hover);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--cor-hover);
+}
+
+#campoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 600px;
+    flex-grow: 1; 
+    margin-bottom: 20px; 
+    margin-right: 100px;
+}
+
+@media (max-width: 1318px) {
+
+    .jogador, .goleiro {
+        width: 20px;
+        height: 20px;
+        transform: rotate(-90deg) !important;
+    }
+
+    .bola {
+        width: 15px;
+        height: 15px;
+    }
+
+    #toolbar {
+        width: 280px;
+    }
+
+    #toolbar.open {
+        left: 0;
+    }
+
+    .elemento img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .elemento span {
+        font-size: 12px;
+    }
+
+    #campo {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/campo2.png'); 
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 5px solid #333;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+    }
+
+    #campoContainer {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-grow: 1;
+        position: relative;
+        width: 100%;
+        margin-left: 150px;
+        max-width: 232px;
+        height: 343px;
+    }
+
+    #menu-formacao {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        right: 0;
+        margin-top: 380px;
+        z-index: 1;
+        margin-left: 20px !important;
+    }
+
+    #menu-formacao-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 160%;
+        right: 0;
+        z-index: 1;
+        margin-left: 20px !important;
+    }
+
+    #controls {
+        display: block;
+        margin-left: 75px;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    #start {
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        margin-left: 15px;
+    }
+
+}
+
+
+
+ /* A parte do codigo que eu removi e tinha antes na responsividade
+ - 
+    @media (max-width: 1000px) {
+    .jogador, .goleiro {
+        width: 40px;
+        height: 40px;
+    }
+
+    .bola {
+        width: 25px;
+        height: 25px;
+    }
+
+    #toolbar {
+        width: 250px;
+    }
+
+    #toolbar.open {
+        left: 0;
+    }
+
+    .elemento img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .elemento span {
+        font-size: 12px;
+    }
+
+    #campo {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/campo2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 5px solid #333;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+    }
+
+    #campoContainer {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-grow: 1;
+        position: relative;
+        width: 100%;
+        max-width: 270px;
+        height: 400px;
+    }
+}
+ 
+ */
