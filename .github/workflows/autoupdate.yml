@@ -1,9 +1,12 @@
 name: Atualização Automática
 
+# Eventos que disparam o workflow
 on:
-  push:
+  push: # Quando algo for enviado manualmente (opcional)
     branches:
       - master
+  schedule: # Agendamento automático
+    - cron: '*/5 * * * *' # Executa a cada 5 minutos
 
 jobs:
   auto-update:
@@ -19,7 +22,7 @@ jobs:
           git config user.name "Kauê Enginer"
           git config user.email "elenacrae@gmail.com"
 
-      # 3. Verificar e Comitar Mudanças (se houver)
+      # 3. Adicionar e Comitar Mudanças (se houver)
       - name: Adicionar e Comitar Mudanças (se houver)
         run: |
           git add .
