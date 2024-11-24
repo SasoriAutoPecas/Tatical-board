@@ -1,0 +1,37 @@
+name: Atualização Automática
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Clonar o repositório
+      - name: Clonar o Repositório
+        uses: actions/checkout@v2
+
+      # 2. Configurar Git
+      - name: Configurar Git
+        run: |
+          git config user.name "Kauê Enginer"
+          git config user.email "elenacrae@gmail.com"
+
+      # 3. Verificar e Comitar Mudanças (se houver)
+      - name: Adicionar e Comitar Mudanças (se houver)
+        run: |
+          git add .
+          if git diff-index --quiet HEAD; then
+            echo "Sem mudanças para comitar";
+          else
+            git commit -m "Atualização automática via GitHub Actions";
+          fi
+
+      # 4. Fazer Push
+      - name: Fazer Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin master
