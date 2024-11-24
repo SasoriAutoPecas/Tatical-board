@@ -1,8 +1,7 @@
 name: Atualização Automática
 
-# Eventos que disparam o workflow
 on:
-  push: # Quando algo for enviado manualmente (opcional)
+  push: # Quando algo for enviado manualmente
     branches:
       - master
   schedule: # Agendamento automático
@@ -14,7 +13,7 @@ jobs:
     steps:
       # 1. Clonar o repositório
       - name: Clonar o Repositório
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # 2. Configurar Git
       - name: Configurar Git
@@ -29,12 +28,12 @@ jobs:
           if git diff-index --quiet HEAD; then
             echo "Sem mudanças para comitar";
           else
-            git commit -m "Atualização automática por Kauê Enginer";
+            git commit -m "Atualização automática via GitHub Actions";
           fi
 
       # 4. Fazer Push
       - name: Fazer Push
-        env: # Certifique-se de que `env` esteja alinhado corretamente
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/SasoriAutoPecas/Tatical-board.git master
