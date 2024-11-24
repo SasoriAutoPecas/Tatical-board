@@ -1,0 +1,209 @@
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Links Gerais - Fundo ao passar o mouse */
+a {
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+a:hover {
+    background-color: #4CAF50; /* Fundo verde ao passar o mouse */
+    color: white; /* Texto permanece branco */
+    padding: 5px 10px; /* Espaçamento ao redor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Fora da tela inicialmente */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    transition: left 0.3s ease; /* Transição suave */
+    z-index: 1001; /* Z-index menor que o botão */
+    border-right: 3px solid #4CAF50;
+    overflow: hidden;
+}
+
+.sidebar.active {
+    left: 0; /* Move para dentro da tela */
+}
+
+.sidebar .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #4CAF50;
+    padding-bottom: 10px;
+    color: white;
+    margin-top: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    display: inline-block; /* Necessário para que o fundo cubra toda a largura */
+    width: 100%; /* Faz o fundo cobrir toda a largura */
+    font-size: 1.5rem;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 3px solid #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .menu-button {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    z-index: 1001;
+    margin-right: 20px;
+}
+
+.header nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header .nav-list a {
+    display: inline-block; /* Necessário para o hover com fundo */
+    font-size: 1.8rem;
+    padding: 5px 10px; /* Espaçamento ao redor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Conteúdo Principal */
+.main {
+    padding-top: 6%;
+    text-align: center;
+    flex: 1;
+}
+
+.main-title {
+    font-size: 6vw;
+    font-weight: bold;
+    color: #009b00;
+    margin-bottom: 30px;
+    text-shadow: 10px 3px 0 #a0d1a2;
+}
+
+@media (max-width: 1656px) {
+    .main-title {
+        font-size: 7vw;
+        text-shadow: 3px 1px 0 #a0d1a2;
+    }
+
+    .main {
+        padding-top: 10%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .main-title {
+        font-size: 8vw;
+        text-shadow: 3px 1px 0 #a0d1a2;
+    }
+
+    .main {
+        padding-top: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 9vw;
+        text-shadow: 5px 2px 0 #a0d1a2;
+    }
+
+    .main {
+        padding-top: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 10vw;
+        text-shadow: 3px 1px 0 #a0d1a2;
+    }
+
+    .main {
+        padding-top: 35%;
+    }
+}
+
+.field-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.field-image {
+    max-width: 80%;
+    height: auto;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #333;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px solid #4CAF50;
+}

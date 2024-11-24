@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro Tático - Deus é Maravilhoso</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -20,38 +20,57 @@
                 ☰
             </button>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Configurações</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="#" aria-label="Página inicial">Início</a></li>
+                <li><a href="#" aria-label="Configurações do quadro">Configurações</a></li>
+                <li><a href="#" aria-label="Sobre o projeto">Sobre</a></li>
             </ul>
         </nav>
 
         <!-- Campo de Futebol -->
         <section id="campoContainer">
             <div id="campo" role="application" aria-label="Campo de Futebol">
-                <!-- Exemplo de jogador com placeholder CSS -->
-                <div class="jogador" data-id="1"></div>
-                <div class="bola"></div>
+                <!-- Exemplo de jogador -->
+                <div class="jogador" data-id="1" aria-label="Jogador Placeholder"></div>
+                <div class="bola" aria-label="Bola de Futebol"></div>
             </div>
         </section>
 
         <!-- Controles -->
-        <section id="controls">
+        <section id="controls" aria-label="Controles do Jogo">
             <button id="add-jogador" aria-label="Adicionar Jogador">Adicionar Jogador</button>
             <button id="iniciar-jogada" aria-label="Iniciar Jogada">Iniciar Jogada</button>
         </section>
     </main>
+
+    <!-- Modal de Configuração -->
+    <div id="config-modal" class="modal" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <h2>Configurações do Jogador</h2>
+            <label for="player-name">Nome:</label>
+            <input type="text" id="player-name" placeholder="Nome do jogador" />
+
+            <label for="player-number">Número:</label>
+            <input type="number" id="player-number" placeholder="Número do jogador" />
+
+            <label for="player-color">Cor do Uniforme:</label>
+            <input type="color" id="player-color" value="#0000ff" />
+
+            <div class="modal-actions">
+                <button id="save-config" aria-label="Salvar configurações do jogador">Salvar</button>
+                <button id="cancel-config" aria-label="Cancelar configurações do jogador">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Rodapé -->
     <footer>
         <p>Desenvolvido com fé e dedicação - Deus é Maravilhoso</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="libs/gsap.min.js"></script>
     <script src="libs/html2canvas.js"></script>
     <script src="libs/ffmpeg.js"></script>
     <script src="js/app.js"></script>
-
-    
 </body>
 </html>

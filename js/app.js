@@ -1,42 +1,16 @@
-import { Draggable } from "gsap/Draggable";
+import { Draggable } from "../libs/gsap.min.js";
+import { initializeUI } from "./ui.js";
+import { addPlayer, initializePlayers } from "./players.js";
 
-// Inicialização do campo e elementos dinâmicos
 document.addEventListener("DOMContentLoaded", () => {
-    const campo = document.getElementById("campo");
+    // Inicializar UI e eventos
+    initializeUI();
 
-    // Adicionar jogador
-    const addJogadorButton = document.getElementById("add-jogador");
-    addJogadorButton.addEventListener("click", () => {
-        const jogador = document.createElement("div");
-        jogador.classList.add("jogador");
-        jogador.style.left = `${Math.random() * 80 + 10}%`;
-        jogador.style.top = `${Math.random() * 80 + 10}%`;
-        campo.appendChild(jogador);
-
-        // Tornar o jogador arrastável
-        Draggable.create(jogador, {
-            type: "x,y",
-            bounds: "#campo",
-            onDragEnd: function () {
-                console.log(`Jogador movido para X=${this.x}, Y=${this.y}`);
-            },
-        });
+    // Botão para adicionar jogador
+    document.getElementById("add-jogador").addEventListener("click", () => {
+        addPlayer(); // Adicionar lógica do jogador do módulo players.js
     });
 
-    // Iniciar jogada
-    const iniciarJogadaButton = document.getElementById("iniciar-jogada");
-    iniciarJogadaButton.addEventListener("click", () => {
-        const jogadores = document.querySelectorAll(".jogador");
-        jogadores.forEach((jogador, index) => {
-            gsap.to(jogador, {
-                x: Math.random() * 400 - 200,
-                y: Math.random() * 400 - 200,
-                duration: 1.5,
-                ease: "power1.inOut",
-                onComplete: () => {
-                    console.log(`Jogador ${index + 1} completou o movimento.`);
-                },
-            });
-        });
-    });
+    // Inicializar lógica de movimentação dos jogadores
+    initializePlayers();
 });

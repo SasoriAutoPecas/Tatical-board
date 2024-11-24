@@ -1,17 +1,23 @@
 DeusEmaravilhoso/
 │
-├── index.html         # HTML principal refatorado
-├── styles.css         # Estilos globais e modulares
-├── js/                # Scripts JavaScript
-│   ├── app.js         # Inicialização do app
-│   ├── field.js       # Controle do campo e interatividade
-│   ├── players.js     # Gerenciamento de jogadores
-│   ├── animations.js  # Lógica de animações com GSAP
-│   ├── export.js      # Funções de exportação (JSON, imagens, vídeos)
-│   └── ui.js          # Controle da interface e eventos
-├── libs/              # Bibliotecas externas
-│   ├── gsap.min.js    # Animações suaves
-│   ├── html2canvas.js # Exportação de imagens
-│   └── ffmpeg.js      # Exportação de vídeos
-└── assets/            # Qualquer recurso adicional (opcional)
-    
+├── index.html         # Arquivo principal para inicializar o projeto.
+│                      # Refatorado para manter a estrutura limpa, modular e legível.
+│
+├── styles.css         # Estilos globais, utilizando classes modulares para reutilização.
+│                      # Considere dividir em múltiplos arquivos CSS se crescer muito, como um diretório `css/`.
+│
+├── js/                # Scripts JavaScript, organizados por funcionalidade.
+│   ├── app.js         # Entrada principal do aplicativo. Contém lógica de inicialização e chamada de outros módulos.
+│   ├── field.js       # Lógica para controle e interatividade do campo.
+│   ├── players.js     # Gerenciamento de dados e ações relacionados aos jogadores.
+│   ├── animations.js  # Contém funções para animações, provavelmente utilizando GSAP.
+│   ├── export.js      # Exportação de dados em diferentes formatos (JSON, imagens, vídeos).
+│   └── ui.js          # Gerencia a interação com o usuário e eventos (como cliques e inputs).
+│
+├── libs/              # Bibliotecas externas para adicionar funcionalidades específicas.
+│   ├── gsap.min.js    # Animações (GSAP é popular para interatividade avançada).
+│   ├── html2canvas.js # Exportação de imagens, capturando visualizações HTML.
+│   └── ffmpeg.js      # Lida com processamento de vídeos diretamente no navegador.
+│
+└── assets/            # Armazena arquivos adicionais (opcional).
+                       # Exemplo: imagens, fontes, vídeos, ícones ou dados estáticos.
